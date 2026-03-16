@@ -25,8 +25,6 @@ export async function GET(request: Request) {
   } catch (error) {
     console.error("Fetch services error:", error);
     return NextResponse.json(
-      { error: "Failed to fetch services" },
-      { status: 500 }
-    );
+      []);
   }
 }
