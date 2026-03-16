@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #2A1A10;
+    background-color: #FFFDF8;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+  }
+
+  ::selection {
+    background-color: rgba(224, 124, 36, 0.2);
+    color: #2A1A10;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #FFF8F0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #C8A951, #E07C24);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #DCC078, #F0A050);
+  }
+}
+
+@layer components {
+  /* === SPIRITUAL GRADIENTS === */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C8A951 0%, #E07C24 50%, #C8A951 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-saffron {
+    background: linear-gradient(135deg, #E07C24 0%, #C8A951 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero: Warm sacred gradient — like a temple at sunrise */
+  .bg-gradient-hero {
+    background: linear-gradient(165deg, #2A1A10 0%, #4A3020 30%, #7B2D3B 60%, #2A1A10 100%);
+  }
+
+  /* Light section gradient */
+  .bg-gradient-section {
+    background: linear-gradient(180deg, #FFFDF8 0%, #FFF8F0 100%);
+  }
+
+  /* Dark section — Earth brown, not cold charcoal */
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #2A1A10 0%, #3D2B1F 50%, #1A0D05 100%);
+  }
+
+  /* Warm sacred section */
+  .bg-gradient-sacred {
+    background: linear-gradient(135deg, #FFF8F0 0%, #F5ECDF 30%, #EDD8B8 100%);
+  }
+
+  /* Saffron accent section */
+  .bg-gradient-saffron {
+    background: linear-gradient(135deg, #E07C24 0%, #C8A951 100%);
+  }
+
+  .gold-border {
+    border: 1px solid rgba(200, 169, 81, 0.25);
+  }
+
+  .gold-border-hover {
+    transition: border-color 0.3s ease;
+  }
+
+  .gold-border-hover:hover {
+    border-color: rgba(200, 169, 81, 0.7);
+  }
+
+  .saffron-border {
+    border: 1px solid rgba(224, 124, 36, 0.2);
+  }
+
+  .glass-card {
+    background: rgba(255, 248, 240, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(200, 169, 81, 0.2);
+  }
+
+  .glass-card-light {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(200, 169, 81, 0.15);
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(200, 169, 81, 0.08) 37%,
+      transparent 63%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+
+  /* Mandala decorative background */
+  .mandala-bg {
+    position: relative;
+  }
+
+  .mandala-bg::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(200, 169, 81, 0.04) 0deg,
+      transparent 60deg,
+      rgba(224, 124, 36, 0.04) 120deg,
+      transparent 180deg,
+      rgba(200, 169, 81, 0.04) 240deg,
+      transparent 300deg,
+      rgba(224, 124, 36, 0.04) 360deg
+    );
+    animation: spin 40s linear infinite;
+    pointer-events: none;
+  }
+
+  .product-card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .product-card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(200, 169, 81, 0.15);
+  }
+
+  .magnetic-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .magnetic-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(224, 124, 36, 0.25);
+  }
+
+  .line-reveal {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .line-reveal::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #E07C24, #C8A951);
+    transition: width 0.4s ease;
+  }
+
+  .line-reveal:hover::after {
+    width: 100%;
+  }
+
+  .divider-gold {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C8A951, transparent);
+  }
+
+  .divider-saffron {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #E07C24, #C8A951, transparent);
+  }
+
+  /* Lotus petal decorative border */
+  .lotus-divider {
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #E07C24 20%, #C8A951 50%, #E07C24 80%, transparent 100%);
+    border-radius: 2px;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32 px-4 md:px-8;
+  }
+
+  .container-narrow {
+    @apply max-w-5xl mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-800 { animation-delay: 800ms; }
+}

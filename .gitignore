@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+.env
+.env.local
+.env.production.local
+*.db
+*.db-journal
+pdf_pages/
+public/uploads/*
+!public/uploads/.gitkeep
+
+.playwright-mcp/
+JAINISM-VISUAL-IDENTITY-RESEARCH.md
